@@ -9,18 +9,11 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ProductDto {
+public class SupplierDto {
+
     private Long id;
 
     private String Name;
-
-    private Double Price;
-
-    private Long Quantity;
-
-    private String SupplierName;
-
-    private Long SupplierId;
 
     private String City;
 }

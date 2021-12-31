@@ -25,7 +25,7 @@ public class Product {
     @Column(name = "Price")
     private Double Price;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     @JoinColumn(name = "Supplier_Id")
     private Supplier Supplier;
 

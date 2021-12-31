@@ -20,12 +20,8 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     void deleteProduct(Long idProduct);
 
     @Modifying
-    @Query(value = "UPDATE Product p SET p.name = :name, p.Price = :price, p.Quantity = :quantity where p.idProduct = :id")
-    void updateProduct(Long id, String name, Double price, Long quantity);
+    @Query(value = "UPDATE Product p SET p.name = :name, p.Price = :price, p.Quantity = :quantity, p.Supplier.id = :supplierId where p.idProduct = :id")
+    void updateProduct(Long id, String name, Double price, Long quantity, Long supplierId);
 
-   /* @Modifying
-    @Query(value = "UPDATE Product p SET p.name = :prod.name where p.idProduct = :id")
-    void updateProduct(Product prod, Long id);*/
-
-
+    Product save(Product savedProduct);
 }

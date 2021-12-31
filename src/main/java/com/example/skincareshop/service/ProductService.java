@@ -42,24 +42,15 @@ public class ProductService {
     }
 
     @Transactional
-    public void updateProduct(Long id, String name, Double price, Long quantity) {
-        productRepository.updateProduct(id, name, price, quantity);
+    public void updateProduct(Long id, String name, Double price, Long quantity, Long supplierId) {
+        productRepository.updateProduct(id, name, price, quantity, supplierId);
     }
 
-   /* @Transactional
-    public void updateProduct(ProductDto productDto, Long id) {
-        Product p = productMapper.mapToEntity(productDto);
-        id = p.getIdProduct();
-        System.out.println(id);
-       productRepository.updateProduct(p, id);
-    }*/
-    /*public UserDto create(UserDto userDto, UserType type) {
-        User user = userMapper.mapToEntity(userDto);
-        user.setUserType(type);
-        User savedUser = userRepository.save(user);
+    public ProductDto createProduct(ProductDto productDto) {
+        Product product = productMapper.mapToEntity(productDto);
+        Product savedProduct = productRepository.save(product);
 
-        return userMapper.mapToDto(savedUser);
-    }*/
-
+        return productMapper.mapToDto(savedProduct);
+    }
 }
 

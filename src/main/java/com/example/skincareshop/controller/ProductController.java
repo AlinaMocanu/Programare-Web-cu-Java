@@ -34,18 +34,14 @@ public class ProductController {
     }
 
     @PutMapping("/update")
-    public void updateProduct( @RequestParam Long id, @RequestParam String name, @RequestParam Double price, @RequestParam Long quantity) {
-        productService.updateProduct(id, name, price, quantity);
+    public void updateProduct( @RequestParam Long id, @RequestParam String name, @RequestParam Double price, @RequestParam Long quantity, @RequestParam Long supplierId) {
+        productService.updateProduct(id, name, price, quantity, supplierId);
     }
-    /*@PostMapping("/student")
-    public ResponseEntity<UserDto> createStudent(@RequestBody UserDto userDto) {
+
+    @PostMapping("/create")
+    public ResponseEntity<ProductDto> createProduct(@RequestBody ProductDto productDto) {
         return ResponseEntity
                 .ok()
-                .body(userService.create(userDto, UserType.STUDENT));
-    }*/
-
-   /* @PutMapping("/update")
-    public void updateProduct( @RequestBody ProductDto productdto) {
-        productService.updateProduct(productdto, productdto.getId());
-    }*/
+                .body(productService.createProduct(productDto));
+    }
 }

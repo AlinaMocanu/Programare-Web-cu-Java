@@ -21,7 +21,7 @@ public class Supplier {
     private Long id;
 
     @Column(name = "Name")
-    private String Name;
+    private String name;
 
     @Column(name = "City")
     private String City;

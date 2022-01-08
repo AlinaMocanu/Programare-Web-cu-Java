@@ -12,15 +12,15 @@ import lombok.NoArgsConstructor;
 public class ProductDto {
     private Long id;
 
-    private String Name;
+    private String name;
 
-    private Double Price;
+    private Double price;
 
-    private Long Quantity;
+    private Long quantity;
 
-    private String SupplierName;
+    private String supplierName;
 
-    private Long SupplierId;
+    private Long supplierId;
 
-    private String City;
+    private String city;
 }

@@ -5,15 +5,22 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+
 @Builder
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class SupplierDto {
-
+public class DeliveryDto {
     private Long id;
 
-    private String name;
+    private Date date;
 
-    private String city;
+    private String address;
+
+    private Long orderId;
+
+    private Date placementDate;
+
+    private Double total;
 }

@@ -7,13 +7,13 @@ import org.mapstruct.Mapping;
 
 @Mapper(componentModel = "spring")
 public interface SupplierMapper {
-    @Mapping(target = "Name", source = "name")
-    @Mapping(target = "City", source = "city")
+    @Mapping(target = "name", source = "name")
+    @Mapping(target = "city", source = "city")
     @Mapping(target = "id", source = "id")
     SupplierDto mapToDto(Supplier supplier);
 
     @Mapping(target = "name", source = "name")
-    @Mapping(target = "City", source = "city")
+    @Mapping(target = "city", source = "city")
     @Mapping(target = "id", source = "id")
     Supplier mapToEntity(SupplierDto supplier);
 }

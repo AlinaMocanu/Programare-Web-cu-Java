@@ -16,11 +16,11 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     Product findProductByName(String Name);
 
     @Modifying
-    @Query(value = "DELETE FROM Product p WHERE p.idProduct = :idProduct")
+    @Query(value = "DELETE FROM Product p WHERE p.id = :idProduct")
     void deleteProduct(Long idProduct);
 
     @Modifying
-    @Query(value = "UPDATE Product p SET p.name = :name, p.Price = :price, p.Quantity = :quantity, p.Supplier.id = :supplierId where p.idProduct = :id")
+    @Query(value = "UPDATE Product p SET p.name = :name, p.price = :price, p.quantity = :quantity, p.supplier.id = :supplierId where p.id = :id")
     void updateProduct(Long id, String name, Double price, Long quantity, Long supplierId);
 
     Product save(Product savedProduct);

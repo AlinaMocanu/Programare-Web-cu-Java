@@ -1,19 +1,24 @@
 package com.example.skincareshop.dto;
 
+import com.example.skincareshop.domain.User;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+
 @Builder
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class SupplierDto {
+public class OrderDto {
 
     private Long id;
 
-    private String name;
+    private Double total;
 
-    private String city;
+    private Date placementDate;
+
+    private User user;
 }

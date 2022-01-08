@@ -12,24 +12,23 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "products")
-public class Product {
+@Table(name = "users")
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "name")
-    private String name;
+    @Column(name = "last_name")
+    private String lastName;
 
-    @Column(name = "price")
-    private Double price;
+    @Column(name = "first_name")
+    private String firstName;
 
-    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
-    @JoinColumn(name = "supplier_id")
-    private Supplier supplier;
+    @Column(name = "email")
+    private String email;
 
-    @Column(name = "quantity")
-    private Long quantity;
+    @Column(name = "password")
+    private String password;
+
 }
-

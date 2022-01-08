@@ -1,5 +1,7 @@
 package com.example.skincareshop.dto;
 
+import com.example.skincareshop.domain.Order;
+import com.example.skincareshop.domain.Product;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -9,11 +11,13 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class SupplierDto {
+public class OrderItemDto {
 
     private Long id;
 
-    private String name;
+    private Order order;
 
-    private String city;
+    private Product product;
+
+    private Long quantity;
 }

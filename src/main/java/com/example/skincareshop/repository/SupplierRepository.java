@@ -17,7 +17,7 @@ public interface SupplierRepository extends JpaRepository<Supplier, Long> {
     void deleteById(Long idProduct);
 
     @Modifying
-    @Query(value = "UPDATE Supplier s SET s.name = :name, s.City = :city where s.id = :id")
+    @Query(value = "UPDATE Supplier s SET s.name = :name, s.city = :city where s.id = :id")
     void updateSupplier(Long id, String name, String city);
 
     Supplier save(Supplier savedSupplier);

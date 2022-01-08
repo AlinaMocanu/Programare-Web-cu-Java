@@ -7,21 +7,21 @@ import org.mapstruct.Mapping;
 
 @Mapper(componentModel = "spring")
 public interface ProductMapper {
-    @Mapping(target = "SupplierName", source = "supplier.name")
-    @Mapping(target = "City", source = "supplier.city")
-    @Mapping(target = "Name", source = "name")
-    @Mapping(target = "Price", source = "price")
-    @Mapping(target = "id", source = "idProduct")
-    @Mapping(target = "Quantity", source = "quantity")
-    @Mapping(target = "SupplierId", source = "supplier.id")
+    @Mapping(target = "supplierName", source = "supplier.name")
+    @Mapping(target = "city", source = "supplier.city")
+    @Mapping(target = "name", source = "name")
+    @Mapping(target = "price", source = "price")
+    @Mapping(target = "id", source = "id")
+    @Mapping(target = "quantity", source = "quantity")
+    @Mapping(target = "supplierId", source = "supplier.id")
     ProductDto mapToDto(Product product);
 
-    @Mapping(target = "Supplier.name", source = "supplierName")
-    @Mapping(target = "Supplier.City", source = "city")
+    @Mapping(target = "supplier.name", source = "supplierName")
+    @Mapping(target = "supplier.city", source = "city")
     @Mapping(target = "name", source = "name")
-    @Mapping(target = "Price", source = "price")
-    @Mapping(target = "Quantity", source = "quantity")
-    @Mapping(target = "idProduct", source = "id")
-    @Mapping(target = "Supplier.id", source = "supplierId")
+    @Mapping(target = "price", source = "price")
+    @Mapping(target = "quantity", source = "quantity")
+    @Mapping(target = "id", source = "id")
+    @Mapping(target = "supplier.id", source = "supplierId")
     Product mapToEntity(ProductDto product);
 }

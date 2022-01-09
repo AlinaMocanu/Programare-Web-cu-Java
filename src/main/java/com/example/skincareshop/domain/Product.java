@@ -6,6 +6,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Positive;
+import javax.validation.constraints.Size;
 
 @Builder
 @Data
@@ -20,9 +23,12 @@ public class Product {
     private Long id;
 
     @Column(name = "name")
+    @Size(min = 3, max = 200)
+    @NotBlank(message = "Name is mandatory")
     private String name;
 
     @Column(name = "price")
+    @Positive
     private Double price;
 
     @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)

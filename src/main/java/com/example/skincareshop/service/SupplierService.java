@@ -21,6 +21,10 @@ public class SupplierService {
     @Autowired
     private SupplierMapper supplierMapper;
 
+    @Autowired
+    private ProductService productService;
+
+
     public List<SupplierDto> getAllSuppliers() {
         List<Supplier> suppliers = supplierRepository.findAll();
         return suppliers.stream().map(s -> supplierMapper.mapToDto(s)).collect(Collectors.toList());
@@ -37,6 +41,7 @@ public class SupplierService {
 
     @Transactional
     public void deleteSupplier(Long id) {
+        productService.removeSupplierReference(id);
         supplierRepository.deleteById(id);
     }
 

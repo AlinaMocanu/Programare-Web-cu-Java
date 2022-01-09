@@ -9,5 +9,5 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     User findUserByLastName(String Name);
 
-    void deleteById(Long idUser);
+    User save(User user);
 }

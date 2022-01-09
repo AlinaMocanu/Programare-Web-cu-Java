@@ -8,7 +8,6 @@ import com.example.skincareshop.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
 import java.util.Optional;
 
 @Service
@@ -28,8 +27,11 @@ public class UserService {
         return userMapper.mapToDto(user.get());
     }
 
-    @Transactional
-    public void deleteUser(Long id) {
-        userRepository.deleteById(id);
+
+    public UserDto createUser(UserDto userDto) {
+        User user = userMapper.mapToEntity(userDto);
+        User savedUser = userRepository.save(user);
+
+        return userMapper.mapToDto(savedUser);
     }
 }

@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 
 @Builder
 @Data
@@ -26,6 +27,7 @@ public class User {
     private String firstName;
 
     @Column(name = "email")
+    @NotBlank(message = "Email is mandatory")
     private String email;
 
     @Column(name = "password")

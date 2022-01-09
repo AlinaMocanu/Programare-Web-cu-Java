@@ -7,6 +7,7 @@ import com.example.skincareshop.repository.OrderItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -23,4 +24,10 @@ public class OrderItemService {
         return orderItems.stream().map(o -> orderItemMapper.mapToDto(o)).collect(Collectors.toList());
 
     }
+
+    @Transactional
+    public void deleteProductReference(Long id) {
+       orderItemRepository.deleteProductReference(id);
+    }
+
 }

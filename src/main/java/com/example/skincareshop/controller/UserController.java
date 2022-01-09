@@ -20,8 +20,10 @@ public class UserController {
                 .body(userService.getOne(Name));
     }
 
-    //@DeleteMapping("/delete")
-   // public void deleteUser(@RequestParam Long id) {
-   //     userService.deleteUser(id);
-   // }
+    @PostMapping("/create")
+    public ResponseEntity<UserDto> createUser(@RequestBody UserDto userDto) {
+        return ResponseEntity
+                .ok()
+                .body(userService.createUser(userDto));
+    }
 }

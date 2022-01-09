@@ -20,6 +20,9 @@ public class ProductService {
     private ProductRepository productRepository;
 
     @Autowired
+    private OrderItemService orderItemService;
+
+    @Autowired
     private ProductMapper productMapper;
 
     public List<ProductDto> getAllProducts() {
@@ -38,12 +41,18 @@ public class ProductService {
 
     @Transactional
     public void deleteProduct(Long id) {
+        orderItemService.deleteProductReference(id);
         productRepository.deleteProduct(id);
     }
 
     @Transactional
     public void updateProduct(Long id, String name, Double price, Long quantity, Long supplierId) {
         productRepository.updateProduct(id, name, price, quantity, supplierId);
+    }
+
+    @Transactional
+    public void removeSupplierReference(Long id) {
+        productRepository.removeSupplierReference(id);
     }
 
     public ProductDto createProduct(ProductDto productDto) {
